@@ -44,8 +44,31 @@ void Player::update(sf::Int32 dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) == true)
 	{
 		m_position.x -= m_velocity.x;
-		m_doggo.setPosition(m_position);
+		
 	}
+
+	//Window checking
+	if (m_position.y > 1850)
+	{
+		m_position.y = -90;
+	}
+
+	if (m_position.y < -200)
+	{
+		m_position.y = 1840;
+	}
+
+	if (m_position.x > 1650)
+	{
+		m_position.x = -40;
+	}
+
+	if (m_position.x < -50)
+	{
+		m_position.x = 1640;
+	}
+
+	m_doggo.setPosition(m_position);
 }
 
 void Player::render(sf::RenderWindow & window)

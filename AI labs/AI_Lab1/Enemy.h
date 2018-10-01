@@ -23,7 +23,7 @@ private :
 	sf::Texture m_knightTexture;
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
-
+	// random direction and velocity
 	int m_randX;
 	int m_randY;
 };

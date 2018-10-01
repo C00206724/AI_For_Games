@@ -1,24 +1,26 @@
-#ifndef PLAYER
-#define PLAYER
+#ifndef ENEMY
+#define ENEMY
+
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
 
-class Player
+class Enemy
 {
 public:
-	Player();
-	~Player();
+	Enemy();
+	~Enemy();
 	void update(sf::Int32 dt);
 	void render(sf::RenderWindow & window);
 	float getPositionX();
 	float getPositionY();
 
-private :
-	sf::Sprite m_doggo;
-	sf::Texture m_doggoTexture;
+private:
+	sf::Sprite m_knight;
+	sf::Texture m_knightTexture;
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
 	// random direction and velocity
@@ -26,4 +28,4 @@ private :
 	int m_randY;
 };
 
-#endif
+#endif // !ENEMY

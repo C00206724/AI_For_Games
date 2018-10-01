@@ -1,3 +1,4 @@
-﻿  Enemy.cpp
-c:\users\gameuser\documents\ai labs\ai_lab1\enemy.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  AI_Lab1.vcxproj -> C:\Users\gameuser\Documents\AI labs\AI_Lab1\Debug\AI_Lab1.exe
+﻿  Player.cpp
+c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab1\player.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab1\player.cpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  AI_Lab1.vcxproj -> C:\Users\gameuser\Documents\AI_For_Games\AI labs\AI_Lab1\Debug\AI_Lab1.exe
