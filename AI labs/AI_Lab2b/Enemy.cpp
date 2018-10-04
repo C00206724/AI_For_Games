@@ -5,7 +5,7 @@
 Enemy::Enemy() :
 	m_velocity(10, 10),
 	m_position(800, 500),
-	m_maxSpeed(100.0f),
+	m_maxSpeed(2.0f),
 	m_timeToTarget(100.0f)
 {
 	m_spriteTexture.loadFromFile("knight.png");
@@ -31,13 +31,14 @@ Enemy::~Enemy()
 void Enemy::update(sf::Int32 dt, sf::Vector2f playerPos)
 {
 	
-	flee(playerPos);
+	//flee(playerPos);
+	seek(playerPos);
 
 
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation);
-	std::cout << m_position.x << std::endl;
-	std::cout << m_position.y << std::endl;
+	/*std::cout << m_position.x << std::endl;
+	std::cout << m_position.y << std::endl;*/
 }
 
 float Enemy::getPositionX()
@@ -53,25 +54,21 @@ float Enemy::getPositionY()
 void Enemy::seek(sf::Vector2f playerPos)
 {
 	m_velocity = playerPos - m_position;
-	
-	//Magnitude of the vector
-	m_velocityMag = std::sqrt(m_velocity.x*m_velocity.x + m_velocity.y* m_velocity.y);
-	//Normalize vector
-	m_velocity.x = m_velocity.x / m_velocityMag;
-	m_velocity.y = m_velocity.y / m_velocityMag;
-
-	m_velocity.x = m_velocity.x * m_velocityMag;
-	m_velocity.y = m_velocity.y * m_velocityMag;
-
-	std::cout << m_velocity.x << std::endl;
-	m_rotation = getNewRotation(m_rotation, m_velocityMag);
-	m_sprite.setPosition(m_position + m_velocity);
-	
-	
-
+	m_velocity = normalise();
+	m_velocity = m_velocity * m_maxSpeed;
+	m_rotation = getNewRotation(m_rotation, m_velocity);
+	m_position = m_position + m_velocity;
 
 }
 
+sf::Vector2f Enemy::normalise()
+{
+	float length = sqrt((m_velocity.x * m_velocity.x) + (m_velocity.y * m_velocity.y));
+	if (length != 0)
+		return sf::Vector2f(m_velocity.x / length, m_velocity.y / length);
+	else
+		return m_velocity;
+}
 /// <summary>
 /// Funtion that makes the enemy run away from the player
 /// </summary>
@@ -88,15 +85,25 @@ void Enemy::flee(sf::Vector2f playerPos)
 	
 }
 
-float Enemy::getNewRotation(float currentRotation, float speed)
+float Enemy::getNewRotation(float currentRotation, sf::Vector2f velocity)
 {
-	if (speed > 0)
+	if (length(velocity) > 0)
 	{
 		return (std::atan2(-m_velocity.x, m_velocity.y) * 180.0 / 3.141592653589793238463);
 	}
 	else {
 		return currentRotation;
 	}
+}
+
+/// <summary>
+/// A useful function to have in the long term
+/// Code usually makes things look complicated
+/// </summary>
+/// <param name="velocity"></param>
+/// <returns></returns>
+float Enemy::length(sf::Vector2f velocity) {
+	return sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
 }
 
 void Enemy::render(sf::RenderWindow & window)

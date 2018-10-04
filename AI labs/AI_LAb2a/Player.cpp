@@ -29,14 +29,14 @@ void Player::speedUp()
 {
 	if (m_speed < m_maxSpeed)
 	{
-		m_speed += 4;
+		m_speed += 10;
 	}
 }
 void Player::speedDown()
 {
 	if (m_speed > 0)
 	{
-		m_speed -= 4;
+		m_speed -= 10;
 	}
 }
 void Player::increaseRotation()

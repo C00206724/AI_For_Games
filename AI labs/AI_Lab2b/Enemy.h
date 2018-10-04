@@ -18,9 +18,11 @@ public:
 	float getPositionX();
 	float getPositionY();
 	void seek(sf::Vector2f playerPos);
-	float getNewRotation(float currentRotation, float speed);
+	float getNewRotation(float currentRotation, sf::Vector2f velocity);
+	float length(sf::Vector2f velocity);
 	void flee(sf::Vector2f playerPos);
 	void boundaryCheck();
+	sf::Vector2f normalise();
 
 private:
 	sf::Sprite m_sprite;

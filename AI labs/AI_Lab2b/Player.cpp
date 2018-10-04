@@ -138,5 +138,8 @@ void Player::render(sf::RenderWindow &window)
 
 sf::Vector2f Player::getPos()
 {
+	//m_sprite.setPosition(m_position);
+	std::cout << m_position.x << std::endl;
+	std::cout << m_position.y << std::endl;
 	return m_position;
 }
