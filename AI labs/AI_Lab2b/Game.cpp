@@ -59,7 +59,6 @@ void Game::update(sf::Int32 dt)
 	m_player->update(dt);
 	m_enemy->update(dt, m_player->getPos());
 
-
 }
 
 /// <summary>

@@ -31,14 +31,12 @@ Enemy::~Enemy()
 void Enemy::update(sf::Int32 dt, sf::Vector2f playerPos)
 {
 	
-	//flee(playerPos);
-	seek(playerPos);
+	flee(playerPos);
+	//seek(playerPos);
 
 
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation);
-	/*std::cout << m_position.x << std::endl;
-	std::cout << m_position.y << std::endl;*/
 }
 
 float Enemy::getPositionX()
@@ -77,9 +75,9 @@ sf::Vector2f Enemy::normalise()
 void Enemy::flee(sf::Vector2f playerPos)
 {
 	m_velocity = playerPos - m_position;
-	//divide the velocity so the naked eye can see it
-	m_velocity.x = m_velocity.x / m_maxSpeed;
-	m_velocity.y = m_velocity.y / m_maxSpeed;
+	m_velocity = normalise();
+	m_velocity = m_velocity * m_maxSpeed;
+	m_rotation = getNewRotation(m_rotation, m_velocity);
 	m_position = m_position - m_velocity;
 
 	

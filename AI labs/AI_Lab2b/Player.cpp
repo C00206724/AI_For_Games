@@ -91,13 +91,16 @@ void Player::update(double dt)
 	m_heading.x = cos(m_rotation * (3.14 / 180));
 	m_heading.y = sin(m_rotation * (3.14 / 180));
 	
-	m_sprite.setPosition(m_sprite.getPosition().x + m_heading.x * m_speed * (dt / 1000), m_sprite.getPosition().y + m_heading.y* m_speed * (dt / 1000));
+	//Setting the player's position vector first otherwise the "GetPosition" function returns only the initial value
+	m_position.x = m_sprite.getPosition().x + m_heading.x * m_speed * (dt / 1000);
+	m_position.y = m_sprite.getPosition().y + m_heading.y* m_speed * (dt / 1000);
+	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation + 90);
 
 	respawn(m_sprite.getPosition().x, m_sprite.getPosition().y);
 
 	
-
+	
 
 }
 
@@ -138,8 +141,6 @@ void Player::render(sf::RenderWindow &window)
 
 sf::Vector2f Player::getPos()
 {
-	//m_sprite.setPosition(m_position);
-	std::cout << m_position.x << std::endl;
-	std::cout << m_position.y << std::endl;
+	
 	return m_position;
 }

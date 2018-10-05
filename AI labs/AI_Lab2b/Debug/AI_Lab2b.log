@@ -1,12 +1,4 @@
 ﻿  Enemy.cpp
 c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(92): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Player.cpp
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(18): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(91): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(92): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\player.cpp(94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   AI_Lab2b.vcxproj -> C:\Users\gameuser\Documents\AI_For_Games\AI labs\AI_Lab2b\Debug\AI_Lab2b.exe
