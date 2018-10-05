@@ -6,9 +6,10 @@ Enemy::Enemy() :
 	m_velocity(10, 10),
 	m_position(800, 500),
 	m_maxSpeed(2.0f),
-	m_timeToTarget(100.0f)
+	m_timeToTarget(100.0f),
+	m_maxRot(20)
 {
-	m_spriteTexture.loadFromFile("knight.png");
+	m_spriteTexture.loadFromFile("asteroid.png");
 	m_sprite.setTexture(m_spriteTexture);
 	m_sprite.setPosition(m_position);
 	m_sprite.setScale(0.3f, 0.3f);
@@ -31,8 +32,9 @@ Enemy::~Enemy()
 void Enemy::update(sf::Int32 dt, sf::Vector2f playerPos)
 {
 	
-	flee(playerPos);
+	//flee(playerPos);
 	//seek(playerPos);
+	wander(playerPos);
 
 
 	m_sprite.setPosition(m_position);
@@ -81,6 +83,21 @@ void Enemy::flee(sf::Vector2f playerPos)
 	m_position = m_position - m_velocity;
 
 	
+}
+
+void Enemy::wander(sf::Vector2f playerPos)
+{
+	int random = rand() % 2 - 2;
+	m_velocity = playerPos - m_position;
+	m_velocity = normalise();
+	m_rotation = getNewRotation(m_rotation, m_velocity);
+	m_rotation = m_rotation + m_maxRot * random;
+	m_velocity.x = (-sin(m_rotation) * m_maxSpeed);
+	m_velocity.y = (cos(m_rotation) * m_maxSpeed);
+
+	
+		//Velocity = (-sin(orientation), cos(orientation))*maxSpeed
+
 }
 
 float Enemy::getNewRotation(float currentRotation, sf::Vector2f velocity)

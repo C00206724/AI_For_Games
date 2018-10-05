@@ -23,6 +23,7 @@ public:
 	void flee(sf::Vector2f playerPos);
 	void boundaryCheck();
 	sf::Vector2f normalise();
+	void wander(sf::Vector2f playerPos);
 
 private:
 	sf::Sprite m_sprite;
@@ -34,6 +35,7 @@ private:
 	float m_velocityMag;
 	float m_rotation;
 	float m_timeToTarget;
+	float m_maxRot;
 	// random direction and velocity
 };
 

@@ -1,4 +1,7 @@
 ﻿  Enemy.cpp
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gameuser\documents\ai_for_games\ai labs\ai_lab2b\enemy.cpp(107): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
+  Main.cpp
+  Generating Code...
   AI_Lab2b.vcxproj -> C:\Users\gameuser\Documents\AI_For_Games\AI labs\AI_Lab2b\Debug\AI_Lab2b.exe
