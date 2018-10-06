@@ -118,13 +118,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyFlee.cpp" />
+    <ClCompile Include="EnemySeek.cpp" />
+    <ClCompile Include="EnemyWander.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyFlee.h" />
+    <ClInclude Include="EnemySeek.h" />
+    <ClInclude Include="EnemyWander.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include "Player.h"
 Player::Player() :
-	m_position(100, 100),
+	m_position(600, 100),
 	m_velocity(0,0),
 	shape(100.0),
 	m_rotation(90),

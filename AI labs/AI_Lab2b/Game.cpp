@@ -13,7 +13,9 @@ Game::Game() :
 
 
 	m_player = new Player();
-	m_enemy = new Enemy();
+	m_enemyFlee = new EnemyFlee();
+	m_enemyWander = new EnemyWander();
+	m_enemySeek = new EnemySeek();
 
 }
 
@@ -57,7 +59,9 @@ void Game::run()
 void Game::update(sf::Int32 dt)
 {
 	m_player->update(dt);
-	m_enemy->update(dt, m_player->getPos());
+	m_enemyFlee->update(dt, m_player->getPos());
+	m_enemySeek->update(dt, m_player->getPos());
+	m_enemyWander->update(dt, m_player->getPos());
 
 }
 
@@ -69,7 +73,9 @@ void Game::render()
 	m_window.clear();
 
 	m_player->render(m_window);
-	m_enemy->render(m_window);
+	m_enemySeek->render(m_window);
+	m_enemyFlee->render(m_window);
+	m_enemyWander->render(m_window);
 
 	m_window.display();
 }

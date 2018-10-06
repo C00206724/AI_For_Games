@@ -1,5 +1,5 @@
-#ifndef ENEMY
-#define ENEMY
+#ifndef ENEMYSEEK
+#define ENEMYSEEK
 
 
 #pragma once
@@ -8,11 +8,11 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 
-class Enemy
+class EnemySeek
 {
 public:
-	Enemy();
-	~Enemy();
+	EnemySeek();
+	~EnemySeek();
 	void update(sf::Int32 dt, sf::Vector2f playerPos);
 	void render(sf::RenderWindow & window);
 	float getPositionX();
@@ -20,10 +20,8 @@ public:
 	void seek(sf::Vector2f playerPos);
 	float getNewRotation(float currentRotation, sf::Vector2f velocity);
 	float length(sf::Vector2f velocity);
-	void flee(sf::Vector2f playerPos);
 	void boundaryCheck();
 	sf::Vector2f normalise();
-	void wander(sf::Vector2f playerPos);
 
 private:
 	sf::Sprite m_sprite;
@@ -39,4 +37,4 @@ private:
 	// random direction and velocity
 };
 
-#endif // !ENEMY
+#endif // !ENEMYSEEK

@@ -5,7 +5,9 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include "Player.h"
-#include "Enemy.h"
+#include "EnemySeek.h"
+#include "EnemyFlee.h"
+#include "EnemyWander.h"
 
 class Game
 {
@@ -24,7 +26,9 @@ private:
 	Player *m_player;
 
 	//Enemy
-	Enemy *m_enemy;
+	EnemyFlee *m_enemyFlee;
+	EnemyWander *m_enemyWander;
+	EnemySeek *m_enemySeek;
 
 
 	//speed

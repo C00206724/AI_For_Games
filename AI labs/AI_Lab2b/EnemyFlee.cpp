@@ -1,10 +1,8 @@
-#include "Enemy.h"
+#include "EnemyFlee.h"
 
-
-
-Enemy::Enemy() :
+EnemyFlee::EnemyFlee() :
 	m_velocity(10, 10),
-	m_position(800, 500),
+	m_position(600, 500),
 	m_maxSpeed(2.0f),
 	m_timeToTarget(100.0f),
 	m_maxRot(20)
@@ -20,48 +18,37 @@ Enemy::Enemy() :
 
 	srand(time(0)); // This line is needed to stop the rand() function seeding the same numbers.
 
-					// These while loops just make sure the random number 0 isn't accepted.
-
 }
 
 
-Enemy::~Enemy()
+EnemyFlee::~EnemyFlee()
 {
 }
 
-void Enemy::update(sf::Int32 dt, sf::Vector2f playerPos)
+void EnemyFlee::update(sf::Int32 dt, sf::Vector2f playerPos)
 {
-	
-	//flee(playerPos);
-	//seek(playerPos);
-	wander(playerPos);
+
+	flee(playerPos);
+
 
 
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation);
 }
 
-float Enemy::getPositionX()
+float EnemyFlee::getPositionX()
 {
 	return m_position.x;
 }
 
-float Enemy::getPositionY()
+float EnemyFlee::getPositionY()
 {
 	return m_position.y;
 }
 
-void Enemy::seek(sf::Vector2f playerPos)
-{
-	m_velocity = playerPos - m_position;
-	m_velocity = normalise();
-	m_velocity = m_velocity * m_maxSpeed;
-	m_rotation = getNewRotation(m_rotation, m_velocity);
-	m_position = m_position + m_velocity;
 
-}
 
-sf::Vector2f Enemy::normalise()
+sf::Vector2f EnemyFlee::normalise()
 {
 	float length = sqrt((m_velocity.x * m_velocity.x) + (m_velocity.y * m_velocity.y));
 	if (length != 0)
@@ -74,7 +61,7 @@ sf::Vector2f Enemy::normalise()
 /// </summary>
 /// <param name="playerPos"></param>
 /// <returns></returns>
-void Enemy::flee(sf::Vector2f playerPos)
+void EnemyFlee::flee(sf::Vector2f playerPos)
 {
 	m_velocity = playerPos - m_position;
 	m_velocity = normalise();
@@ -82,24 +69,11 @@ void Enemy::flee(sf::Vector2f playerPos)
 	m_rotation = getNewRotation(m_rotation, m_velocity);
 	m_position = m_position - m_velocity;
 
-	
 }
 
-void Enemy::wander(sf::Vector2f playerPos)
-{
-	int random = rand() % 50 - 50;
-	m_velocity = playerPos - m_position;
-	m_velocity = normalise();
-	m_rotation = getNewRotation(m_rotation, m_velocity);
-	m_rotation += random;
-	m_position = m_position + m_velocity;
-	//m_velocity.x = (-sin(m_rotation) * m_maxSpeed);
-	//m_velocity.y = (cos(m_rotation) * m_maxSpeed);
 
 
-}
-
-float Enemy::getNewRotation(float currentRotation, sf::Vector2f velocity)
+float EnemyFlee::getNewRotation(float currentRotation, sf::Vector2f velocity)
 {
 	if (length(velocity) > 0)
 	{
@@ -116,16 +90,16 @@ float Enemy::getNewRotation(float currentRotation, sf::Vector2f velocity)
 /// </summary>
 /// <param name="velocity"></param>
 /// <returns></returns>
-float Enemy::length(sf::Vector2f velocity) {
+float EnemyFlee::length(sf::Vector2f velocity) {
 	return sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
 }
 
-void Enemy::render(sf::RenderWindow & window)
+void EnemyFlee::render(sf::RenderWindow & window)
 {
 	window.draw(m_sprite);
 }
 
-void Enemy::boundaryCheck()
+void EnemyFlee::boundaryCheck()
 {
 	//Window checking
 	if (m_position.y > 1850)
