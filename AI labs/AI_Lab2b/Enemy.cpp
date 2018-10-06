@@ -87,16 +87,15 @@ void Enemy::flee(sf::Vector2f playerPos)
 
 void Enemy::wander(sf::Vector2f playerPos)
 {
-	int random = rand() % 2 - 2;
+	int random = rand() % 50 - 50;
 	m_velocity = playerPos - m_position;
 	m_velocity = normalise();
 	m_rotation = getNewRotation(m_rotation, m_velocity);
-	m_rotation = m_rotation + m_maxRot * random;
-	m_velocity.x = (-sin(m_rotation) * m_maxSpeed);
-	m_velocity.y = (cos(m_rotation) * m_maxSpeed);
+	m_rotation += random;
+	m_position = m_position + m_velocity;
+	//m_velocity.x = (-sin(m_rotation) * m_maxSpeed);
+	//m_velocity.y = (cos(m_rotation) * m_maxSpeed);
 
-	
-		//Velocity = (-sin(orientation), cos(orientation))*maxSpeed
 
 }
 
