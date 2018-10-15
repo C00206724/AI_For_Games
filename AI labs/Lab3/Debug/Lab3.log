@@ -1,0 +1,4 @@
+﻿  Arrive.cpp
+c:\users\gameuser\documents\ai_for_games\ai labs\lab3\arrive.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gameuser\documents\ai_for_games\ai labs\lab3\arrive.cpp(109): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Lab3.vcxproj -> C:\Users\gameuser\Documents\AI_For_Games\AI labs\Lab3\Debug\Lab3.exe
