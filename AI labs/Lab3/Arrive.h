@@ -28,6 +28,9 @@ public:
 	sf::Vector2f getVelocity();
 	sf::Vector2f getPosition();
 	int getId();
+	void KinematicFlee(sf::Vector2f enemyPosition);
+
+
 private:
 	sf::Vector2f m_position;
 	sf::RectangleShape m_rect;
@@ -38,7 +41,11 @@ private:
 	Game *m_game;
 	sf::Vector2f m_playerPos;
 	float m_rotation;
-	float maxSpeed;
+	float m_maxSpeed;
+	float m_threshold;
+	int m_behaviour;
+	sf::Vector2f m_direction;
+	float m_distance;
 	float maxRotation = 0;
 	float timeToTarget = 10;
 	float m_orientation;

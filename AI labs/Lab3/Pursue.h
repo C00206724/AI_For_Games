@@ -14,7 +14,7 @@ public:
 	float getNewOrientation(float currentOrientation, float velocity);
 	void kinematicSeek(sf::Vector2f playerPosition);
 	void kinematicArrive(sf::Vector2f playerPosition);
-	void kinematicFlee(sf::Vector2f enemyPosition);
+	void KinematicFlee(sf::Vector2f enemyPosition);
 	void pursue(sf::Vector2f playerPosition, sf::Vector2f playerVelocity);
 	sf::Vector2f collisionAvoidance(std::vector<Enemy*> enemies);
 	void respawn(float x, float y);
@@ -25,6 +25,8 @@ public:
 	sf::Vector2f getVelocity();
 	sf::Vector2f getPosition();
 	int getId();
+
+
 
 private:
 	Game * m_game;
@@ -50,6 +52,8 @@ private:
 	sf::Font m_font;
 
 	int id = 3;
+	float m_threshold;
+	int m_behaviour;
 	sf::Vector2f m_relVelocity;
 	sf::Vector2f m_relPosition;
 	float m_relSpeed;

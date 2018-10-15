@@ -26,8 +26,10 @@ public:
 	void checkBorders();
 	double static const DEG_TO_RAD;
 	double static const RAD_TO_DEG;
+	void kinematicFlee(sf::Vector2f enemyPosition);
+
 private:
-	int id = 0;
+	int id = 5;
 	sf::Vector2f m_position;
 	sf::RectangleShape m_rect;
 	float m_orientation;
@@ -39,7 +41,12 @@ private:
 	Game *m_game;
 	sf::Vector2f m_playerPos;
 	float m_rotation;
-	float maxSpeed = 2;
+	float m_maxSpeed;
+	float m_radius;
+	float m_threshold;
+	int m_behaviour;
+	sf::Vector2f m_direction;
+	float m_distance;
 	float maxRotation = 180;
 	float timeToTarget = 2;
 };

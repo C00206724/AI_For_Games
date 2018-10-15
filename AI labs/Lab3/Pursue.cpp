@@ -11,7 +11,9 @@ Pursue::Pursue(Game & game) :
 	m_timeToTarget(80.0f),
 	m_maxTimePrediction(3.0f),
 	m_relSpeed(0.0f),
-	m_radius(10.0f)
+	m_radius(10.0f),
+	m_threshold(35),
+	m_behaviour(1)
 {
 
 	if (!m_texture.loadFromFile("EnemyRocket.png")) {
@@ -106,6 +108,7 @@ float Pursue::getRandom(int a, int b)
 
 }
 
+
 sf::Vector2f Pursue::collisionAvoidance(std::vector<Enemy*> enemies) {
 
 
@@ -123,11 +126,18 @@ sf::Vector2f Pursue::collisionAvoidance(std::vector<Enemy*> enemies) {
 				float det = (m_velocity.x * m_direction.y) - (m_velocity.y * m_direction.x);
 
 				float angle = atan2(det, dot);
-
-				if (angle >= -20 && angle <= 20)
+				if (angle >= -m_threshold && angle <= m_threshold)
 				{
-					kinematicFlee(enemies[i]->getPosition());
+					m_behaviour = 2;
+					KinematicFlee(enemies[i]->getPosition());
+					std::cout << "Collided Pursue" << std::endl;
+
 				}
+
+			}
+			if (m_behaviour == 2 && m_distance > m_radius * 2)
+			{
+				m_behaviour = 1;
 			}
 
 
@@ -136,6 +146,7 @@ sf::Vector2f Pursue::collisionAvoidance(std::vector<Enemy*> enemies) {
 	}
 	return m_velocity;
 }
+
 void Pursue::kinematicSeek(sf::Vector2f playerPosition)
 {
 	m_velocity = playerPosition - m_position;
@@ -151,7 +162,7 @@ void Pursue::kinematicSeek(sf::Vector2f playerPosition)
 	m_orientation = getNewOrientation(m_orientation, m_velocityF);
 
 }
-void Pursue::kinematicFlee(sf::Vector2f enemyPosition)
+void Pursue::KinematicFlee(sf::Vector2f enemyPosition)
 {
 	m_velocity = m_position - enemyPosition;
 	//Get magnitude of vector
