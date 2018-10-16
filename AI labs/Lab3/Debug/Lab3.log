@@ -1,11 +1,5 @@
-﻿  Pursue.cpp
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\pursue.cpp(65): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\pursue.cpp(105): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\pursue.cpp(106): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\pursue.cpp(115): warning C4018: '<': signed/unsigned mismatch
-  Seek.cpp
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(76): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(123): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  Seek.cpp
+c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\documents\ai_for_games\ai labs\lab3\seek.cpp(137): warning C4018: '<': signed/unsigned mismatch
   Lab3.vcxproj -> C:\Users\gameuser\Documents\AI_For_Games\AI labs\Lab3\Debug\Lab3.exe

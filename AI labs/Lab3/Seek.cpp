@@ -16,12 +16,24 @@ Seek::Seek(Game &game) :
 	if (!m_texture.loadFromFile("EnemyRocket.png")) {
 		//do something
 	}
+
+	if (!m_font.loadFromFile("ariblk.ttf"))
+	{
+		std::cout << "problem loading font" << std::endl;
+	}
+
 	m_rect.setTexture(&m_texture);
 	m_rect.setOrigin(100, 50);
 	m_rect.setSize(sf::Vector2f(200, 100));
 	m_rect.setPosition(m_position);
 	srand(time(NULL));
 
+	m_label.setFont(m_font);
+	m_label.setCharacterSize(40);
+	m_label.setString("Seek");
+	m_label.setPosition(m_position.x, m_position.y);
+	m_label.setOrigin(50, 50);
+	m_label.setFillColor(sf::Color(0, 0, 0));
 }
 
 
@@ -56,7 +68,9 @@ void Seek::update(double dt)
 	m_rect.setPosition(m_position);
 	m_rect.setRotation(m_rotation);
 
-
+	//making labels follow
+	m_label.setPosition(m_position);
+	m_label.setRotation(m_orientation);
 
 }
 
@@ -158,6 +172,7 @@ sf::Vector2f Seek::collisionAvoidance(std::vector<Enemy*> enemies) {
 void Seek::render(sf::RenderWindow & window)
 {
 	window.draw(m_rect);
+	window.draw(m_label);
 }
 
 sf::Vector2f Seek::normalise()

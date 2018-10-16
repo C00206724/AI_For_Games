@@ -49,6 +49,8 @@ private:
 	float m_distance;
 	float maxRotation = 180;
 	float timeToTarget = 2;
+	sf::Text m_label;
+	sf::Font m_font;
 };
 
 

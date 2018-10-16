@@ -17,11 +17,24 @@ Wander::Wander(Game &game) :
 	if (!m_texture.loadFromFile("Enemyrocket.png")) {
 		//do something
 	}
+
+	if (!m_font.loadFromFile("ariblk.ttf"))
+	{
+		std::cout << "problem loading font" << std::endl;
+	}
+
 	m_rect.setTexture(&m_texture);
 	m_rect.setOrigin(m_position.x + 100, m_position.y + 50);
 	m_rect.setSize(sf::Vector2f(200, 100));
 	m_rect.setPosition(m_position);
 	srand(time(NULL));
+
+	m_label.setFont(m_font);
+	m_label.setCharacterSize(40);
+	m_label.setString("Wander");
+	m_label.setPosition(m_position.x, m_position.y);
+	m_label.setOrigin(50, 50);
+	m_label.setFillColor(sf::Color(0, 0, 0));
 
 }
 
@@ -83,6 +96,10 @@ void Wander::update(double dt)
 	m_position += m_velocity;
 	m_rect.setPosition(m_position);
 	m_rect.setRotation(m_orientation);
+
+	//making labels follow
+	m_label.setPosition(m_position);
+	m_label.setRotation(m_orientation);
 
 }
 
@@ -176,6 +193,7 @@ sf::Vector2f Wander::collisionAvoidance(std::vector<Enemy*> enemies) {
 void Wander::render(sf::RenderWindow & window)
 {
 	window.draw(m_rect);
+	window.draw(m_label);
 }
 
 sf::Vector2f Wander::normalise()

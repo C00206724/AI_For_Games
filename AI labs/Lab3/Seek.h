@@ -48,6 +48,9 @@ private:
 	float m_rotation;
 	float m_maxRotation;
 
+	sf::Text m_label;
+	sf::Font m_font;
+
 };
 
 
